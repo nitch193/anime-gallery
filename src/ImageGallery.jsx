@@ -33,7 +33,7 @@ const ImageGallery = ({ type }) => {
       {loading ? (
         <Box>Loading Images...</Box>
       ) : err ? (
-        <Box>There is some error </Box>
+        <Box>Server error </Box>
       ) : (
         <SimpleGrid spacing={4} minChildWidth="320px">
           {Images.map((image, index) => {

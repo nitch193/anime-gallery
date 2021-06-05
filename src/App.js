@@ -14,11 +14,13 @@ import {
 import { FaHamburger, FaImages } from 'react-icons/fa';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import ImageGallery from './ImageGallery';
+import Notice from './Notice';
 function App() {
   const [type, setType] = useState('safeimages');
   const handleClick = e => {
     setType(e.target.textContent.toLowerCase().replace(/\s/g, ''));
   };
+
   return (
     <ChakraProvider theme={theme}>
       <Flex display="flex" direction="column">
@@ -32,9 +34,10 @@ function App() {
           zIndex="toast"
           // color={useColorModeValue('#020030', '#fff')}
         >
-          <Box fontSize="2xl" p="1rem" flex={1} fontWeight="bold">
+          <Box fontSize="lg" p="1rem" flex={1} fontWeight="bold">
             ANIME-GALLERY
           </Box>
+          <Notice />
           <Box padding="1rem">
             <Menu>
               <MenuButton as={Button}>
