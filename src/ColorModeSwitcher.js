@@ -9,14 +9,22 @@ export const ColorModeSwitcher = props => {
 
   return (
     <MenuItem
-      size="md"
-      fontSize="lg"
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
       color="current"
-      marginLeft="2"
       onClick={toggleColorMode}
       icon={<SwitchIcon />}
+      mt={1}
+      mb={1}
+      textAlign="center"
+      _hover={{
+        bgColor: `${useColorModeValue('', '')}`,
+        color: ``,
+      }}
+      fontWeight="bold"
+      borderRadius="lg"
+      border="2px"
+      borderColor="current"
       {...props}
     >
       {text.toUpperCase()} Mode

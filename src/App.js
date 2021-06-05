@@ -9,11 +9,11 @@ import {
   Flex,
   Button,
   MenuList,
+  useColorModeValue,
 } from '@chakra-ui/react';
-import { FaHamburger } from 'react-icons/fa';
+import { FaHamburger, FaImages } from 'react-icons/fa';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import ImageGallery from './ImageGallery';
-import './style.css';
 function App() {
   const [type, setType] = useState('safeimages');
   const handleClick = e => {
@@ -22,8 +22,17 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Flex display="flex" direction="column">
-        <Flex display="flex" justify="space-between" fontFamily="cursive">
-          <Box fontSize="2xl" p="1rem" flex={1}>
+        <Flex
+          pos="fixed"
+          width="full"
+          shadow="lg"
+          display="flex"
+          justify="space-between"
+          fontFamily="cursive"
+          zIndex="toast"
+          // color={useColorModeValue('#020030', '#fff')}
+        >
+          <Box fontSize="2xl" p="1rem" flex={1} fontWeight="bold">
             ANIME-GALLERY
           </Box>
           <Box padding="1rem">
@@ -34,20 +43,60 @@ function App() {
               <MenuList rootProps={{ style: { right: 0 } }}>
                 <ColorModeSwitcher />
                 <MenuItem
-                  color="green.300"
+                  mt={1}
+                  mb={1}
+                  icon={<FaImages />}
+                  textAlign="center"
+                  _hover={{
+                    bgColor: `${useColorModeValue('green.50', 'green.50')}`,
+                    color: `green.500`,
+                  }}
+                  fontWeight="bold"
+                  color="green.500"
+                  border="2px"
+                  // borderColor="green.500"
                   className="110"
                   onClick={handleClick}
+                  borderRadius="lg"
                 >
                   Safe Images
                 </MenuItem>
                 <MenuItem
-                  color="yellow.300"
+                  mt={1}
+                  textAlign="center"
+                  mb={1}
+                  _hover={{
+                    bgColor: `${useColorModeValue('yellow.50', 'yellow.50')}`,
+                    color: `yellow.500`,
+                  }}
+                  icon={<FaImages />}
+                  color="yellow.500"
                   className="010"
+                  border="2px"
+                  // borderColor="yellow.500"
+                  fontWeight="bold"
                   onClick={handleClick}
+                  borderRadius="lg"
                 >
                   Sketchy Images
                 </MenuItem>
-                <MenuItem color="red.300" className="001" onClick={handleClick}>
+                <MenuItem
+                  textAlign="center"
+                  mt={1}
+                  mb={1}
+                  _hover={{
+                    bgColor: `${useColorModeValue('red.50', 'red.50')}`,
+                    color: `red.500`,
+                  }}
+                  fontWeight="bold"
+                  icon={<FaImages />}
+                  color="red.500"
+                  border="2px"
+                  borderRadius="lg"
+                  // borderColor="yellow.500"
+                  className="001"
+                  onClick={handleClick}
+                >
                   NSFW Images
                 </MenuItem>
               </MenuList>
