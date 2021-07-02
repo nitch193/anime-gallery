@@ -17,10 +17,10 @@ export const ColorModeSwitcher = props => {
       mt={1}
       mb={1}
       textAlign="center"
-      _hover={{
-        bgColor: `${useColorModeValue('', '')}`,
-        color: ``,
-      }}
+      // _hover={{
+      //   bgColor: `${useColorModeValue('#FFFFFF', '#1A202C')}`,
+      //   color: `${useColorModeValue('#1A202C', '#FFFFFF')}`,
+      // }}
       fontWeight="bold"
       borderRadius="lg"
       border="2px"

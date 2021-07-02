@@ -27,12 +27,12 @@ function App() {
         <Flex
           pos="fixed"
           width="full"
+          zIndex="overlay"
           shadow="lg"
           display="flex"
+          top="0"
           justify="space-between"
           fontFamily="cursive"
-          zIndex="toast"
-          // color={useColorModeValue('#020030', '#fff')}
         >
           <Box fontSize="lg" p="1rem" flex={1} fontWeight="bold">
             ANIME-GALLERY
