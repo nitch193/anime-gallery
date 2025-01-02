@@ -4,6 +4,7 @@ import ImageGallery from './ImageGallery';
 function App() {
   const [type, setType] = useState("111");
   const [purity, setPurity] = useState("100")
+  console.log("est", setType, setPurity)
   return (
     <main>
       <p>Hello,  this is a wallpaper gallery.</p>
