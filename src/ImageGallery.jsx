@@ -1,15 +1,6 @@
-import {
-  Box,
-  Container,
-  LinkBox,
-  LinkOverlay,
-  SimpleGrid,
-} from '@chakra-ui/layout';
 import React, { useEffect, useState } from 'react';
-import URI from './api';
 import axios from 'axios';
-import { Image } from '@chakra-ui/image';
-const ImageGallery = ({ type }) => {
+const ImageGallery = ({ type, purity }) => {
   const [Images, setImages] = useState([]);
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -17,43 +8,49 @@ const ImageGallery = ({ type }) => {
   useEffect(() => {
     setLoading(true);
     const getImages = async () => {
-      const response = await axios.get(`${URI}${type}`).catch(error => {
+      const response = await axios.get("https://anime-gallery-api-nrwczens8ekk.deno.dev",{
+        params:{
+          type,
+          purity
+        }
+      }
+    ).catch(error => {
         setErr(true);
       });
+      console.log("res",response)
       setLoading(false);
-      setImages(response.data);
+      setImages(response.data.data);
     };
     getImages();
-    console.log(type);
-    console.log(`getting image of ${type}`);
-  }, [type, setImages, setErr, setLoading]);
+  }, [type, setImages, setErr, setLoading, purity]);
 
   return (
-    <Container mt={'6rem'} mb={'4rem'} maxW={'7xl'} className="gallery-body">
+    <div className="gallery-body">
       {loading ? (
-        <Box>Loading Images...</Box>
+        <div>Loading Images...</div>
       ) : err ? (
-        <Box>Server error </Box>
+        <div>Server error </div>
       ) : (
-        <SimpleGrid spacing={4} minChildWidth="320px">
+        <div className='image-gallery-div'>
           {Images.map((image, index) => {
             return (
-              <Box key={index}>
-                <LinkBox>
-                  <LinkOverlay
-                    href={image.path}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <Image src={image.thumbs.large} alt={image.category} />
-                  </LinkOverlay>
-                </LinkBox>
-              </Box>
+              <div key={index} className='gallery-item'>
+                <button className='download-button' onClick={()=>{
+                   const a = document.createElement('a')
+                   a.href = image.path
+                   document.body.appendChild(a)
+                   a.click()
+                   document.body.removeChild(a)
+                }}>
+                  <img src='./download.svg' alt='Download button'/>
+                </button>
+                <img className='gallery-image' src={image.thumbs.large} alt={image.category} />
+              </div>
             );
           })}
-        </SimpleGrid>
+        </div>
       )}
-    </Container>
+    </div>
   );
 };
 

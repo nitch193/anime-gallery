@@ -1,0 +1,128 @@
+html {
+    width: 100%;
+    background: #ffffff;
+    color: #272928;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.logo-para {
+    width: 100px;
+    height: 100px;
+}
+main {
+    width:90%
+}
+.image-gallery-div {
+ columns: 1;
+ margin-bottom: 50px;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .image-gallery-div {
+        columns: 1;
+       }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .image-gallery-div {
+        columns: 2;
+        column-gap: 10px;
+        
+       }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .image-gallery-div {
+        columns: 2;
+        column-gap: 10px;
+    
+       }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .image-gallery-div {
+        columns: 3;
+        column-gap: 10px;
+       }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .image-gallery-div {
+        columns: 3;
+        column-gap: 15px;
+        
+       }
+}
+@media only screen and (min-width: 1440px) {
+    .image-gallery-div {
+        columns: 4;
+        column-gap: 15px;
+        
+       }
+}
+.gallery-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    max-height: 350px;
+    object-fit: fill;
+    padding-bottom: 10px;
+}
+.gallery-image{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.download-button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    pointer-events: all;
+    position: absolute;
+    width: 20px;
+    bottom: 10px;
+    right: 8px;
+    cursor: pointer;;
+    border-radius: 2px;
+    display: flex;
+    place-content: center;
+    background-color: rgb(199, 209, 204,0.3);
+    z-index: 10;
+}
+.download-button:hover{
+    background-color: rgb(199, 209, 204,0.5);
+}
