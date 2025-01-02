@@ -8,7 +8,7 @@ const ImageGallery = ({ type, purity }) => {
   useEffect(() => {
     setLoading(true);
     const getImages = async () => {
-      const response = await axios.get("https://anime-gallery-api-nrwczens8ekk.deno.dev",{
+      const response = await axios.get("https://anime-gallery-api.deno.dev/",{
         params:{
           type,
           purity
