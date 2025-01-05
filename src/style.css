@@ -38,7 +38,6 @@ main {
     .image-gallery-div {
         columns: 2;
         column-gap: 10px;
-        
        }
 }
 
@@ -47,7 +46,6 @@ main {
     .image-gallery-div {
         columns: 2;
         column-gap: 10px;
-    
        }
 }
 
@@ -64,14 +62,12 @@ main {
     .image-gallery-div {
         columns: 3;
         column-gap: 15px;
-        
        }
 }
 @media only screen and (min-width: 1440px) {
     .image-gallery-div {
         columns: 4;
         column-gap: 15px;
-        
        }
 }
 .gallery-item {
@@ -114,7 +110,7 @@ main {
     pointer-events: all;
     position: absolute;
     width: 20px;
-    bottom: 10px;
+    bottom: 15px;
     right: 8px;
     cursor: pointer;;
     border-radius: 2px;

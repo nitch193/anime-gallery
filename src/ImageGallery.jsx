@@ -17,7 +17,6 @@ const ImageGallery = ({ type, purity }) => {
     ).catch(error => {
         setErr(true);
       });
-      console.log("res",response)
       setLoading(false);
       setImages(response.data.data);
     };
