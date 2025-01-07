@@ -38,6 +38,7 @@ const ImageGallery = ({ type, purity }) => {
                    const a = document.createElement('a')
                    a.href = image.path
                    document.body.appendChild(a)
+                   a.setAttribute('target', "__blank")
                    a.click()
                    document.body.removeChild(a)
                 }}>

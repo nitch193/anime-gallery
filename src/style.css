@@ -122,3 +122,8 @@ main {
 .download-button:hover{
     background-color: rgb(199, 209, 204,0.5);
 }
+.selection-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
